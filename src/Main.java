@@ -3,8 +3,6 @@ import processing.data.Table;
 import processing.data.TableRow;
 import java.util.ArrayList;
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main extends PApplet {
     public static Main app;
     private ArrayList<SocialMedia> data;
@@ -50,58 +48,58 @@ public class Main extends PApplet {
         if(draw) {
             if(startScreen) {
                 background(255, 184, 213);
-                Main.app.fill(0);
+                fill(0);
                 textSize(50);
-                Main.app.text("Search and Sort Visualizer", 130, 100);
+                text("Search and Sort Visualizer", 130, 100);
                 textSize(25);
-                Main.app.text("Press the enter button to start or view instructions again", 120, 200);
-                Main.app.text("Press the s button to start the sort", 220, 250);
-                Main.app.text("Press the space button to start the search", 190, 300);
-                Main.app.text("Type in a number between 0 to 10 on the keyboard to set your target.", 50, 350);
-                Main.app.text("Description:\nThis searches and sorts a data collection containing time people spend on\n social media and which platform they spend the most time on.", 10, 450);
+                text("Press the enter button to start or view instructions again", 120, 200);
+                text("Press the s button to start the sort", 220, 250);
+                text("Press the space button to start the search", 190, 300);
+                text("Type in a number between 0 to 10 on the keyboard to set your target.", 50, 350);
+                text("Description:\nThis searches and sorts a data collection containing time people spend on\n social media and which platform they spend the most time on.", 10, 450);
             }
             else{
                 background(255);
-                Main.app.fill(0);
+                fill(0);
                 textSize(50);
-                Main.app.text("Search and Sort Visualizer", 130, 100);
+                text("Search and Sort Visualizer", 130, 100);
                 for (int i = 0; i < data.size(); i++) {
                     if (i == 0) {
                         x = 50;
                         y = 150;
                     }
                     if (i == bottom || i == top) {
-                        Main.app.fill(255);
+                        fill(255);
                     } else if (i == middleIndex) {
-                        Main.app.fill(163, 255, 188);
+                        fill(163, 255, 188);
                     } else {
-                        Main.app.fill(255, 184, 213);
+                        fill(255, 184, 213);
                     }
-                    Main.app.rect(x, y, 100, 100);
-                    Main.app.fill(0);
+                    rect(x, y, 100, 100);
+                    fill(0);
                     textSize(30);
-                    Main.app.text(data.get(i).getSocialMediaTime(), x + 40, y + 60);
+                    text(data.get(i).getSocialMediaTime(), x + 40, y + 60);
                     textSize(20);
-                    Main.app.text(data.get(i).getPlatform(), x+10, y + 120);
+                    text(data.get(i).getPlatform(), x+10, y + 120);
                     if (result == middleIndex) {
-                        Main.app.fill(0);
+                        fill(0);
                         textSize(50);
-                        Main.app.text("Search found at index " + middleIndex + "!", 150, 554);
+                        text("Search found at index " + middleIndex + "!", 150, 554);
                         textSize(20);
-                        Main.app.text("Input a new target to try again", 260, 590);
+                        text("Input a new target to try again", 260, 590);
                     }
                     if (result == -1 && top != bottom) {
-                        Main.app.fill(0);
+                        fill(0);
                         textSize(50);
-                        Main.app.text("Search not found yet", 190, 550);
+                        text("Search not found yet", 190, 550);
                         textSize(20);
                     }
                     if (result == -1 && top == bottom) {
-                        Main.app.fill(0);
+                        fill(0);
                         textSize(50);
-                        Main.app.text("Search not found!", 200, 550);
+                        text("Search not found!", 200, 550);
                         textSize(20);
-                        Main.app.text("Input a new target to try again", 250, 590);
+                        text("Input a new target to try again", 250, 590);
                     }
                     if (i == (data.size()/2)-1) {
                         y += 200;
@@ -120,6 +118,9 @@ public class Main extends PApplet {
         top = 9;
         middleIndex = (top + bottom)/2;
         draw = true;
+    }
+    public void status() {
+
     }
 
     public void keyPressed() {
