@@ -56,7 +56,7 @@ public class Main extends PApplet {
                 text("Press the s button to start the sort", 220, 250);
                 text("Press the space button to start the search", 190, 300);
                 text("Type in a number between 0 to 10 on the keyboard to set your target.", 50, 350);
-                text("Description:\nThis searches and sorts a data collection containing time people spend on\n social media and which platform they spend the most time on.", 10, 450);
+                text("Description:\nThis application searches and sorts a data collection containing the time \npeople spend on social media and which platform they spend the most time on.", 10, 450);
             }
             else{
                 background(255);
@@ -88,13 +88,13 @@ public class Main extends PApplet {
                         textSize(20);
                         text("Input a new target to try again", 260, 590);
                     }
-                    if (result == -1 && top != bottom) {
+                    if (result == -1 && top != bottom && bottom != data.size()-2) {
                         fill(0);
                         textSize(50);
                         text("Search not found yet", 190, 550);
                         textSize(20);
                     }
-                    if (result == -1 && top == bottom) {
+                    if (result == -1 && (top == bottom || bottom == data.size()-2)) {
                         fill(0);
                         textSize(50);
                         text("Search not found!", 200, 550);
@@ -118,9 +118,6 @@ public class Main extends PApplet {
         top = 9;
         middleIndex = (top + bottom)/2;
         draw = true;
-    }
-    public void status() {
-
     }
 
     public void keyPressed() {
@@ -165,9 +162,11 @@ public class Main extends PApplet {
             reset();
         }
         if(key == ' ') {
-            draw = true;
+            System.out.println("Bottom: " + bottom);
+            System.out.println("top" + top);
             //result = binarySearchRecursive();
             result = binarySearchIterative();
+            draw = true;
         }
         if(key == 's') {
             selectionSort(data);

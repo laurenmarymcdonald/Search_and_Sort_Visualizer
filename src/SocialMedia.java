@@ -6,7 +6,6 @@ public class SocialMedia implements Comparable{
     private String platform;
     private int socialMediaTime;
     private int physicalActivitesTime;
-    private boolean isSearched;
 
     public SocialMedia(int socialMediaTime) {
         this.socialMediaTime = socialMediaTime;
@@ -28,21 +27,10 @@ public class SocialMedia implements Comparable{
     public int getSocialMediaTime() {
         return socialMediaTime;
     }
-    public void setIsSearched(boolean searched) {
-        isSearched = searched;
-    }
-    public boolean searched() {
-        if(isSearched) {
-            return true;
-        }
-        else {
-            return false;
-        }
-    }
     @Override
     public String toString() {
         return "social media time: " + socialMediaTime;
-    }
+    } //for testing purposes
     @Override
     public int compareTo(Object anotherObject){
         SocialMedia obj2 = (SocialMedia) anotherObject;
