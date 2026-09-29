@@ -2,7 +2,6 @@
 
 A Java and [Processing](https://processing.org/) app that shows **selection sort** and **binary search** running step by step on a small dataset: time spent on social media, by platform.
 
-![Visualizer screenshot](screenshot.png)
 
 ## Controls
 | Key | Action |
